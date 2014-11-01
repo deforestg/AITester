@@ -17,6 +17,7 @@ namespace TicTacToe {
 		protected:
 			Board* board;
 			Player** players;
+			void init(Player** players, Board* board);
 		public:
 			/* a bunch of different ways to initialize a game */
 			Game(Player** players);
