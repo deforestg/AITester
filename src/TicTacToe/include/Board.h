@@ -14,20 +14,24 @@
 
 using namespace std;
 
-class Board {
-	protected:
-		int sizeX;
-		int sizeY;
-		int sizeTotal;
-		char* separater; // for display
-		// one continuous array of sizeX*sizeY
-		char* board;
-	public:
-		Board(int sizeX = DEFAULT_BOARD_SIZE, int sizeY = DEFAULT_BOARD_SIZE);
-		bool Move(int x, int y, char player);
-		char* GetBoard() { return board; };
-		void Print();
-		virtual ~Board();
-};
+namespace TicTacToe {
+
+	class Board {
+		protected:
+			int sizeX;
+			int sizeY;
+			int sizeTotal;
+			char* separater; // for display
+			// one continuous array of sizeX*sizeY
+			char* board;
+		public:
+			Board(int sizeX = DEFAULT_BOARD_SIZE, int sizeY = DEFAULT_BOARD_SIZE);
+			bool Move(int x, int y, char player);
+			char* GetBoard() { return board; };
+			void Print();
+			virtual ~Board();
+	};
+
+}
 
 #endif /* BOARD_H_ */
