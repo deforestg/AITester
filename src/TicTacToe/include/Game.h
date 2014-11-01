@@ -21,7 +21,7 @@ namespace TicTacToe {
 		public:
 			/* a bunch of different ways to initialize a game */
 			Game(Player** players);
-			Game(Player** players, int sizeX, int sizeY);
+			Game(Player** players, int sizeX, int sizeY, int winLength = 0);
 			Game(Player** players, Board* board);
 			void New();
 	};

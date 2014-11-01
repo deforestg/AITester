@@ -22,9 +22,10 @@ namespace TicTacToe {
 	 * @param Player** players
 	 * @param int sizeX
 	 * @param int sizeY
+	 * @param int winLength
 	 */
-	Game::Game(Player** players, int sizeX, int sizeY) {
-		init(players, new Board(sizeX, sizeY));
+	Game::Game(Player** players, int sizeX, int sizeY, int winLength) {
+		init(players, new Board(sizeX, sizeY, winLength));
 	}
 
 	/**

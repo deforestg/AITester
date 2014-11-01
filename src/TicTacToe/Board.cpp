@@ -15,11 +15,18 @@ namespace TicTacToe {
 	 * @param int sizeX
 	 * @param int sizeY
 	 */
-	Board::Board(int sizeX, int sizeY) {
+	Board::Board(int sizeX, int sizeY, int winLength) {
 		this->sizeX = sizeX;
 		this->sizeY = sizeY;
 		sizeTotal = sizeX * sizeY;
 		board = new char[sizeTotal];
+
+		if (winLength > 0) {
+			this->winLength = winLength;
+		} else {
+			// keep the game interesting: 3x3 is 3, 4x4 is 4, 5x5 is 4
+			this->winLength = round((sizeX + sizeY)/2 * 0.89);
+		}
 
 		separater = new char[sizeX];
 		for (int i = 0; i < sizeX; i++) {
@@ -42,6 +49,13 @@ namespace TicTacToe {
 
 		board[translated] = player;
 		return 1;
+	}
+
+	/**
+	 * @return char - 0 or player who won
+	 */
+	char Board::GetWinner() {
+		return 0;
 	}
 
 	/**
