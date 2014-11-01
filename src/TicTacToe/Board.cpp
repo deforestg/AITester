@@ -57,7 +57,7 @@ void Board::Print() {
 }
 
 Board::~Board() {
-	delete board;
-	delete separater;
+	delete[] board;
+	delete[] separater;
 }
 
