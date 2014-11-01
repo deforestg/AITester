@@ -23,7 +23,7 @@ namespace TicTacToe {
 
 		separater = new char[sizeX];
 		for (int i = 0; i < sizeX; i++) {
-			separater[i] = "-";
+			separater[i] = '-';
 		}
 	}
 
