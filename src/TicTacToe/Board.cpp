@@ -28,9 +28,10 @@ namespace TicTacToe {
 			this->winLength = round((sizeX + sizeY)/2 * 0.89);
 		}
 
-		separater = new char[sizeX];
-		for (int i = 0; i < sizeX; i++) {
-			separater[i] = '-';
+		verticalSeparater = " | ";
+		horizontalSeparater = "";
+		for (int i = 0; i < sizeX * (int)verticalSeparater.length(); i++) {
+			horizontalSeparater += "-";
 		}
 	}
 
@@ -54,7 +55,8 @@ namespace TicTacToe {
 	/**
 	 * @return char - 0 or player who won
 	 */
-	char Board::GetWinner() {
+	char Board::FindWinner() {
+
 		return 0;
 	}
 
@@ -63,18 +65,31 @@ namespace TicTacToe {
 	 */
 	void Board::Print() {
 		for (int i = 0; i < sizeTotal; i++) {
-			if (i % sizeX == 0) {
-				cout << separater;
+			char output = board[i] ?: ' ';
+
+			if (i > 0 && i % sizeX == 0) {
+				cout << endl << horizontalSeparater << endl << output << verticalSeparater;
 			} else if ((i + 1) % sizeX == 0) {
-				cout << board[i];
+				cout << output;
+			} else {
+				cout << output << verticalSeparater;
 			}
-			cout << board[i] << " | ";
+
+		}
+		cout << endl;
+	}
+
+	/**
+	 * set all spaces to 0
+	 */
+	void Board::Reset() {
+		for (int i = 0; i < sizeTotal; i++) {
+			board[i] = 0;
 		}
 	}
 
 	Board::~Board() {
 		delete[] board;
-		delete[] separater;
 	}
 
 }

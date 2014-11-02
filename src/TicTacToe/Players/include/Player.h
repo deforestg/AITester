@@ -13,10 +13,9 @@
 namespace TicTacToe {
 
 	class Player {
-		private:
-			Player();
-			~Player();
 		protected:
+			Player(char symbol);
+			virtual ~Player();
 			char symbol;
 		public:
 			virtual void Move(Board* board) = 0;

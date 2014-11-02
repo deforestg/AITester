@@ -9,4 +9,12 @@
 
 namespace TicTacToe {
 
+	Player::Player(char symbol) {
+		this->symbol = symbol;
+	}
+
+	Player::~Player() {
+
+	}
+
 }

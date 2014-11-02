@@ -15,15 +15,17 @@ namespace TicTacToe {
 
 	class Game {
 		protected:
-			Board* board;
 			Player** players;
-			void init(Player** players, Board* board);
+			int numPlayers;
+			Board* board;
+			void init(Player** players, int numPlayers, Board* board);
 		public:
 			/* a bunch of different ways to initialize a game */
-			Game(Player** players);
-			Game(Player** players, int sizeX, int sizeY, int winLength = 0);
-			Game(Player** players, Board* board);
-			void New();
+			Game(Player** players, int numPlayers);
+			Game(Player** players, int numPlayers, int sizeX, int sizeY, int winLength = 0);
+			Game(Player** players, int numPlayers, Board* board);
+			void Reset();
+			void Start();
 	};
 
 }
