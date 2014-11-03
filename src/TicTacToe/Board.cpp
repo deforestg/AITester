@@ -29,10 +29,9 @@ namespace TicTacToe {
 		}
 
 		verticalSeparater = " | ";
-		horizontalSeparater = "";
-		for (int i = 0; i < sizeX * (int)verticalSeparater.length(); i++) {
-			horizontalSeparater += "-";
-		}
+		char* temp = new char[sizeX * (int)verticalSeparater.length()];
+		memset(temp, '-', sizeX * (int)verticalSeparater.length());
+		horizontalSeparater = temp;
 	}
 
 	/**
@@ -56,6 +55,12 @@ namespace TicTacToe {
 	 * @return char - 0 or player who won
 	 */
 	char Board::FindWinner() {
+
+		for (int i = 0; i < sizeTotal; i++) {
+			if (board[i]) {
+
+			}
+		}
 
 		return 0;
 	}
