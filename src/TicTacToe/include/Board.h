@@ -22,17 +22,18 @@ namespace TicTacToe {
 		protected:
 			int sizeX;
 			int sizeY;
-			int sizeTotal;
 			int winLength;
+			int spacesLeft; // saves an x y loop
 			string verticalSeparater; // for display
 			string horizontalSeparater;
-			// one continuous array of sizeX*sizeY
-			char* board;
+			// 2d array [sizeX][sizeY]
+			char** board;
 		public:
 			Board(int sizeX = DEFAULT_BOARD_SIZE, int sizeY = DEFAULT_BOARD_SIZE, int winLength = 0);
 			bool Move(int x, int y, char player);
 			char FindWinner();
-			char* GetBoard() { return board; };
+			char** GetBoard() { return board; };
+			char Get(int x, int y);
 			void Print();
 			void Reset();
 			virtual ~Board();

@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 	players[0] = new Human('x');
 	players[1] = new Human('o');
 
-	Game* game = new Game(players, numPlayers);
+	Game* game = new Game(players, numPlayers, 4, 4);
 	game->Start();
 
 	return 0;

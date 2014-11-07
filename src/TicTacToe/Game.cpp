@@ -64,10 +64,10 @@ namespace TicTacToe {
 	 */
 	void Game::Start() {
 
-		char winner;
+		char winner = 0;
 		int count = 0;
 
-		do {
+		while(!winner) {
 			board->Print();
 
 			players[count++]->Move(board);
@@ -77,8 +77,15 @@ namespace TicTacToe {
 			}
 
 			winner = board->FindWinner();
-		} while(!winner);
+		}
 
-		cout << "Winner: " << winner;
+		board->Print();
+		if (winner > -1) {
+			cout << "Winner: " << winner;
+		} else {
+			cout << "No winners here";
+		}
+
+		cout << endl;
 	}
 }
