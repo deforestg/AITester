@@ -94,7 +94,7 @@ namespace TicTacToe {
 		int i, j, inARow = 1;
 		char previous = 0;
 
-		// scan horizontallly
+		// scan horizontally
 		for (i = 0; i < sizeY; i++) {
 			for (j = 0; j < sizeX; j++) {
 				if (previous && board[i][j] == previous) {
@@ -111,6 +111,7 @@ namespace TicTacToe {
 
 			inARow = 0;
 		}
+		inARow = 0;
 
 		// scan vertically
 		for (j = 0; j < sizeX; j++) {
@@ -127,8 +128,9 @@ namespace TicTacToe {
 				previous = board[i][j];
 			}
 
-			inARow = 1;
+			inARow = 0;
 		}
+		inARow = 0;
 
 		int temp;
 		// scan diagonal top half
@@ -147,7 +149,7 @@ namespace TicTacToe {
 				previous = board[i][temp];
 			}
 
-			inARow = 1;
+			inARow = 0;
 		}
 		// scan diagonal bottom half
 		for (i = 1; i < sizeY; i++) {
@@ -165,7 +167,7 @@ namespace TicTacToe {
 				previous = board[temp][j];
 			}
 
-			inARow = 1;
+			inARow = 0;
 		}
 
 		// scan reverse diagonal top half
@@ -184,7 +186,7 @@ namespace TicTacToe {
 				previous = board[i][temp];
 			}
 
-			inARow = 1;
+			inARow = 0;
 		}
 		// scan reverse diagonal bottom half
 		for (i = 1; i < sizeY; i++) {
@@ -202,7 +204,7 @@ namespace TicTacToe {
 				previous = board[temp][j];
 			}
 
-			inARow = 1;
+			inARow = 0;
 		}
 
 		return 0;
