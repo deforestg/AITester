@@ -23,7 +23,7 @@ namespace TicTacToe {
 
 		spacesLeft = sizeX * sizeY;
 
-		if (winLength > 0) {
+		if (winLength > 1) {
 			this->winLength = winLength;
 		} else {
 			genWinLength();
