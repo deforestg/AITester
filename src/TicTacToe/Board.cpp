@@ -91,7 +91,7 @@ namespace TicTacToe {
 			return -1;
 		}
 
-		int i, j, inARow = 1;
+		int i, j, inARow = 0;
 		char previous = 0;
 
 		// scan horizontally
@@ -151,6 +151,7 @@ namespace TicTacToe {
 
 			inARow = 0;
 		}
+		inARow = 0;
 		// scan diagonal bottom half
 		for (i = 1; i < sizeY; i++) {
 			temp = i;
@@ -188,6 +189,7 @@ namespace TicTacToe {
 
 			inARow = 0;
 		}
+		inARow = 0;
 		// scan reverse diagonal bottom half
 		for (i = 1; i < sizeY; i++) {
 			temp = i;
