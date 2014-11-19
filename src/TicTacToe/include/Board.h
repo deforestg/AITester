@@ -35,15 +35,21 @@ namespace TicTacToe {
 		public:
 			Board(int sizeX = DEFAULT_BOARD_SIZE, int sizeY = DEFAULT_BOARD_SIZE, int winLength = 0);
 			Board(const char* filename);
+		    virtual Board* Clone();
+			virtual ~Board();
+
 			bool Move(int x, int y, char player);
 			char FindWinner();
-			char** GetBoard() { return board; };
-			char Get(int x, int y);
 			void Print();
 			void Reset();
 			void Load(const char* filename);
 			void Save(const char* filename);
-			virtual ~Board();
+
+			char** GetBoard() { return board; };
+			char Get(int x, int y);
+			int GetSizeX() { return sizeX; }
+			int GetSizeY() { return sizeY; }
+			int GetWinLength() { return winLength; }
 	};
 
 }

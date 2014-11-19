@@ -362,4 +362,14 @@ namespace TicTacToe {
 		delete[] board;
 	}
 
+	Board* Board::Clone() {
+		Board* temp = new Board(*this);
+		temp->board = new char*[sizeY];
+		for (int i = 0; i < sizeY; i++) {
+			temp->board[i] = new char[sizeX];
+			memcpy(temp->board[i], board[i], sizeX);
+		}
+		return temp;
+	}
+
 }
