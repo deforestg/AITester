@@ -26,8 +26,6 @@ namespace TicTacToe {
 			currentDepth = board->GetSpacesLeft()-1;
 		}
 		int value = minimax(board, currentDepth);
-		cout << "best value is " << value << ", move: " << moveX << ", " << moveY << endl;
-		board->Print();
 
 		if (moveX == -1) {	// all values lead to loss, make first move possible
 			for (int i = 0; i < sizeY; i++) {
@@ -48,7 +46,6 @@ namespace TicTacToe {
 
 	int Minimax::minimax(Board* board, int depth, bool maximizing, bool firstRun) {
 		if (!depth) {
-			cout << "base case" << endl;
 			return boardValue(board);
 		}
 		int best;
