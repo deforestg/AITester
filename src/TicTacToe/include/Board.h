@@ -21,8 +21,7 @@ namespace TicTacToe {
 
 	class Board {
 		protected:
-			int sizeX;
-			int sizeY;
+			int sizeX, sizeY;
 			int winLength;
 			int spacesLeft;
 			string verticalSeparater; // for display
@@ -50,6 +49,7 @@ namespace TicTacToe {
 			int GetSizeX() { return sizeX; }
 			int GetSizeY() { return sizeY; }
 			int GetWinLength() { return winLength; }
+			int GetSpacesLeft() { return spacesLeft; }
 	};
 
 }

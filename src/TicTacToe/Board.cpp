@@ -87,50 +87,44 @@ namespace TicTacToe {
 	 */
 	char Board::FindWinner() {
 
-		if (!spacesLeft) {
-			return -1;
-		}
-
-		int i, j, inARow = 0;
+		int i, j, inARow = 1;
 		char previous = 0;
 
 		// scan horizontally
 		for (i = 0; i < sizeY; i++) {
 			for (j = 0; j < sizeX; j++) {
 				if (previous && board[i][j] == previous) {
-					inARow++;
+					if (++inARow == winLength) {
+						return previous;
+					}
 				} else {
 					inARow = 1;
 				}
 
-				if (inARow == winLength) {
-					return previous;
-				}
 				previous = board[i][j];
 			}
 
-			inARow = 0;
+			previous = 0;
+			inARow = 1;
 		}
-		inARow = 0;
 
 		// scan vertically
 		for (j = 0; j < sizeX; j++) {
 			for (i = 0; i < sizeY; i++) {
 				if (previous && board[i][j] == previous) {
-					inARow++;
+					if (++inARow == winLength) {
+						return previous;
+					}
 				} else {
 					inARow = 1;
 				}
 
-				if (inARow == winLength) {
-					return previous;
-				}
 				previous = board[i][j];
 			}
 
-			inARow = 0;
+			previous = 0;
+			inARow = 1;
 		}
-		inARow = 0;
 
 		int temp;
 		// scan diagonal top half
@@ -138,37 +132,36 @@ namespace TicTacToe {
 			temp = j;
 			for (i = 0; i < sizeY && temp < sizeX; i++, temp++) {
 				if (previous && board[i][temp] == previous) {
-					inARow++;
+					if (++inARow == winLength) {
+						return previous;
+					}
 				} else {
 					inARow = 1;
 				}
 
-				if (inARow == winLength) {
-					return previous;
-				}
 				previous = board[i][temp];
 			}
 
-			inARow = 0;
+			previous = 0;
+			inARow = 1;
 		}
-		inARow = 0;
 		// scan diagonal bottom half
 		for (i = 1; i < sizeY; i++) {
 			temp = i;
 			for (j = 0; j < sizeX && temp < sizeY; j++, temp++) {
 				if (previous && board[temp][j] == previous) {
-					inARow++;
+					if (++inARow == winLength) {
+						return previous;
+					}
 				} else {
 					inARow = 1;
 				}
 
-				if (inARow == winLength) {
-					return previous;
-				}
 				previous = board[temp][j];
 			}
 
-			inARow = 0;
+			previous = 0;
+			inARow = 1;
 		}
 
 		// scan reverse diagonal top half
@@ -176,37 +169,40 @@ namespace TicTacToe {
 			temp = j;
 			for (i = 0; i < sizeY && temp >= 0; i++, temp--) {
 				if (previous && board[i][temp] == previous) {
-					inARow++;
+					if (++inARow == winLength) {
+						return previous;
+					}
 				} else {
 					inARow = 1;
 				}
 
-				if (inARow == winLength) {
-					return previous;
-				}
 				previous = board[i][temp];
 			}
 
-			inARow = 0;
+			previous = 0;
+			inARow = 1;
 		}
-		inARow = 0;
 		// scan reverse diagonal bottom half
 		for (i = 1; i < sizeY; i++) {
 			temp = i;
 			for (j = sizeX-1; j >= 0 && temp < sizeY; j--, temp++) {
 				if (previous && board[temp][j] == previous) {
-					inARow++;
+					if (++inARow == winLength) {
+						return previous;
+					}
 				} else {
 					inARow = 1;
 				}
 
-				if (inARow == winLength) {
-					return previous;
-				}
 				previous = board[temp][j];
 			}
 
-			inARow = 0;
+			previous = 0;
+			inARow = 1;
+		}
+
+		if (!spacesLeft) {
+			return -1;
 		}
 
 		return 0;
