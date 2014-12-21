@@ -25,21 +25,7 @@ namespace TicTacToe {
 		if (board->GetSpacesLeft()-1 < depth) {
 			currentDepth = board->GetSpacesLeft()-1;
 		}
-		int value = minimax(board, currentDepth);
-
-		if (moveX == -1) {	// all values lead to loss, make first move possible
-			for (int i = 0; i < sizeY; i++) {
-				for (int j = 0; j < sizeX; j++) {
-					if (board->Get(j, i)) {
-						continue;
-					} else {
-						moveX = j;
-						moveY = i;
-						break;
-					}
-				}
-			}
-		}
+		minimax(board, currentDepth);
 
 		board->Move(moveX, moveY, symbol);
 	}
@@ -62,7 +48,7 @@ namespace TicTacToe {
 					newBoard->Move(j, i, symbol);
 
 					int current = minimax(newBoard, depth - 1, false, false);
-					if (current > best) {
+					if (current >= best) {
 						best = current;
 
 						if (firstRun) {
