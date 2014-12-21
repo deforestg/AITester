@@ -22,8 +22,8 @@ namespace TicTacToe {
 
 		moveX = moveY = -1;
 		int currentDepth = depth;
-		if (board->GetSpacesLeft()-1 < depth) {
-			currentDepth = board->GetSpacesLeft()-1;
+		if (board->GetSpacesLeft() < depth) {
+			currentDepth = board->GetSpacesLeft();
 		}
 		minimax(board, currentDepth);
 
@@ -31,8 +31,9 @@ namespace TicTacToe {
 	}
 
 	int Minimax::minimax(Board* board, int depth, bool maximizing, bool firstRun) {
-		if (!depth) {
-			return boardValue(board);
+		int value = boardValue(board);
+		if (value || !depth) {	// if game ending move or out of depth
+			return value;
 		}
 		int best;
 		Board* newBoard;
