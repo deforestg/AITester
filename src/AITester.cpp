@@ -24,8 +24,8 @@ int main(int argc, char** argv) {
 
 	int numPlayers = 2;
 	Player** players = new Player*[numPlayers];
-	players[0] = new Human('x');
-	players[1] = new Minimax('o', 'x');
+	players[0] = new Minimax('o', 'x');
+	players[1] = new Minimax('x', 'o');
 
 	Game* game = new Game(players, numPlayers, x, y, w);
 	game->Start();
